@@ -11,23 +11,17 @@ def update():
     date_string = strftime("%B %d, %Y")
     date_label.config(text=date_string)
 
-    #label_width_array = [len(time_string),
-             #len(day_string),
-             #len(date_string)]
-
-    #time_label.config(width=max(label_width_array))
-    #day_label.config(width=max(label_width_array))
-    #date_label.config(width=max(label_width_array))
-
     window.after(1000,update)
 
 window = Tk()
 
-window.geometry("500x500")
+window.geometry("500x250")
+window.title("Digital Clock")
 
 Grid.rowconfigure(window,0,weight=1)
-Grid.columnconfigure(window,0,weight=1)
 Grid.rowconfigure(window,1,weight=1)
+Grid.rowconfigure(window,2,weight=1)
+Grid.columnconfigure(window,0,weight=1)
 
 time_label = Label(window,
                    font=("Arial",50),
