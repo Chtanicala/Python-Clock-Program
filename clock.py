@@ -11,40 +11,41 @@ def update():
     date_string = strftime("%B %d, %Y")
     date_label.config(text=date_string)
 
-    label_width_array = [len(time_string),
-             len(day_string),
-             len(date_string)]
+    #label_width_array = [len(time_string),
+             #len(day_string),
+             #len(date_string)]
 
-    time_label.config(width=max(label_width_array))
-    day_label.config(width=max(label_width_array))
-    date_label.config(width=max(label_width_array))
+    #time_label.config(width=max(label_width_array))
+    #day_label.config(width=max(label_width_array))
+    #date_label.config(width=max(label_width_array))
 
     window.after(1000,update)
 
 window = Tk()
 
+window.geometry("500x500")
 
+Grid.rowconfigure(window,0,weight=1)
+Grid.columnconfigure(window,0,weight=1)
+Grid.rowconfigure(window,1,weight=1)
 
 time_label = Label(window,
                    font=("Arial",50),
                    fg="red",
-                   background="black",
-                   width=7)
-time_label.pack()
+                   background="black")
+time_label.grid(row=0,column=0,sticky="NSEW")
 
 day_label = Label(window,
                    font=("Arial",50),
                    fg="green",
-                   background="black",
-                   width=7)
-day_label.pack()
+                   background="black")
+day_label.grid(row=1,column=0,sticky="NSEW")
 
 date_label = Label(window,
                    font=("Arial",50),
                    fg="blue",
-                   background="black",
-                   width=7)
-date_label.pack()
+                   background="black")
+date_label.grid(row=2,column=0,sticky="NSEW")
 
 update()
 
